@@ -28,21 +28,21 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests((authorizeHttpRequests) ->
-                        authorizeHttpRequests
-                                .requestMatchers("/**").hasRole("ADMIN")
-                                .requestMatchers("/delete/*/user").hasRole("ADMIN") //* - any symbol {uuid}
-                                .requestMatchers(HttpMethod.POST).hasAnyRole("ADMIN", "USER")
-                                .requestMatchers(HttpMethod.GET).permitAll()
-                                .anyRequest().authenticated())
-                .httpBasic(Customizer.withDefaults()) //using basic authentification
-                .sessionManagement(Customizer.withDefaults());
-
-        return http.build();
-    }
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//        http
+//                .csrf(csrf -> csrf.disable())
+//                .authorizeHttpRequests((authorizeHttpRequests) ->
+//                        authorizeHttpRequests
+//                                .requestMatchers("/**").hasRole("ADMIN")
+//                                .requestMatchers("/delete/*/user").hasRole("ADMIN") //* - any symbol {uuid}
+//                                .requestMatchers("/create/user").hasAnyRole("ADMIN", "USER")
+//                                .requestMatchers(HttpMethod.GET).permitAll()
+//                                .anyRequest().authenticated())
+//                .httpBasic(Customizer.withDefaults()) //using basic authentification
+//                .sessionManagement(Customizer.withDefaults());
+//
+//        return http.build();
+//    }
 
 
     @Bean
