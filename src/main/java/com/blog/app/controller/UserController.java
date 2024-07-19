@@ -1,13 +1,9 @@
 package com.blog.app.controller;
 
-import com.blog.app.Entities.UserEntity;
-import com.blog.app.UserService.UserService;
+import com.blog.app.entities.UserEntity;
+import com.blog.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,5 +16,10 @@ public class UserController {
     @GetMapping("/users")
     public List<UserEntity> findAll() {
         return userService.findAll();
+    }
+
+    @PostMapping("/user")
+    public UserEntity newUser(@RequestBody UserEntity userEntity) {
+        return userService.addNewUser(userEntity);
     }
 }

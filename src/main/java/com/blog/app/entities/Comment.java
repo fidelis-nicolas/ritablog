@@ -1,4 +1,4 @@
-package com.blog.app.Entities;
+package com.blog.app.entities;
 
 public class Comment {
     

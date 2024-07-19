@@ -1,7 +1,6 @@
-package com.blog.app.UserService;
+package com.blog.app.service;
 
-import com.blog.app.Entities.UserEntity;
-import org.springframework.http.ResponseEntity;
+import com.blog.app.entities.UserEntity;
 
 import java.util.List;
 
